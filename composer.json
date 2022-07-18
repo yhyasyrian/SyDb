@@ -1,6 +1,8 @@
 {
     "name": "yhyasyrian/sydb",
     "description": "Library communication and dealing with databases",
+    "version": "1.0.0",
+    "type": "library",
     "keywords": [
         "PHP",
         "SQL",
@@ -10,17 +12,17 @@
         "DataBase",
         "mysqli"
     ],
-    "autoload": {
-        "psr-4": {
-            "Yhyasyrian\\Sydb\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Yhya Nesb",
             "email": "yhya.syrian@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "YhyaSyrian\\Sql\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "require": {
         "php": ">=8.0"
