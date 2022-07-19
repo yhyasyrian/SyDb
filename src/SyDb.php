@@ -20,7 +20,7 @@ final class SyDb extends Select{
     * @param string $DB
     */
     public function __construct(public string $Host,public string $User,public string $Pass,public string $DB) { 
-        // $this->connect(); // For Connect DataBase
+        $this->connect(); // For Connect DataBase
     }
 }
 // print_r(__DIR__);
