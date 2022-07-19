@@ -1,19 +1,22 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/connect.class.php';
-abstract class Delete extends Connect{
+require_once __DIR__.'/Insert.php';
+abstract class Update extends Insert{
     /**
     * @param string $table
     * Name Table
     * @param array $where
     * column => row
+    * @param array $new
+    * column => row
     *
     * @return string
-    * For initialization Sql Code (DELETE)
+    * For initialization Sql Code (UPDATE)
     */
-    public function delete_sql(string $table,array $where) : string
+    public function update_sql(string $table,array $where,array $new) : string
     {
-        $sql = "DELETE FROM `{$table}`";
+        $sql = "UPDATE `{$table}` SET";
+        $sql .= $this->ArrayToString($new);
         $sql .= $this->ArrayToString($where,true);
         return $sql;
 
@@ -21,16 +24,23 @@ abstract class Delete extends Connect{
     /**
     * @param array $array
     *
+    * @param bool $where 
+    * For Add WHERE In Sql Or None
+    *
     * @return string
     * For Array Conversion To String Ready To Use
     */ 
-    private function ArrayToString(array $array) : string
+    private function ArrayToString(array $array,bool $where = false) : string
     {
         $result = '';
         $count = count($array);
         $i = 0;
         if ($count != 0) {
-            $result = ' WHERE ';
+            if ($where == true) {
+                $result = ' WHERE ';
+            } else {
+                $result = ' ';
+            }
             foreach ($array as $key => $value) {
                 $value = $this->Filter($value);
                 $result .= "`{$key}`='{$value}'";
@@ -42,17 +52,19 @@ abstract class Delete extends Connect{
         }
         return $result;
     }
-        /**
+    /**
     * @param string $table
     * Name Table
     * @param array $where
     * column => row
+    * @param array $new
+    * column => row
     *
     * @return string
-    * For initialization Sql Code And Run (DELETE)
+    * For initialization Sql Code And Run (UPDATE)
     */
-    public function delete(string $table,array $where) 
+    public function update(string $table,array $where,array $new) 
     {
-        return $this->query($this->delete_sql($table,$where));
+        return $this->query($this->update_sql($table,$where,$new));
     }
 }

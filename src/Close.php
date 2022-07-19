@@ -1,6 +1,6 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/query.class.php';
+require_once __DIR__.'/Query.php';
 abstract class Close extends Query{
     /**
     * @return string

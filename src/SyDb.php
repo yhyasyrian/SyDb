@@ -1,7 +1,7 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/exception.class.php';
-require_once __DIR__.'/select.class.php';
+require_once __DIR__.'/Exception.php';
+require_once __DIR__.'/Select.php';
 final class SyDb extends Select{
     /* *
     * @var Charset Data In DataBase 
@@ -20,6 +20,7 @@ final class SyDb extends Select{
     * @param string $DB
     */
     public function __construct(public string $Host,public string $User,public string $Pass,public string $DB) { 
-        $this->connect(); // For Connect DataBase
+        // $this->connect(); // For Connect DataBase
     }
 }
+// print_r(__DIR__);

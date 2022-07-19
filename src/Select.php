@@ -1,6 +1,6 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/update.class.php';
+require_once __DIR__.'/Update.php';
 abstract class Select extends Update{
     /**
     * @param string $table

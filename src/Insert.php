@@ -1,6 +1,6 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/delete.class.php';
+require_once __DIR__.'/Delete.php';
 abstract class Insert extends Delete{
     /**
     * @param string $table
