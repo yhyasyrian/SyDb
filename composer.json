@@ -1,7 +1,7 @@
 {
     "name": "yhyasyrian/sydb",
     "description": "Library communication and dealing with databases",
-    "version": "1.0.0",
+    "version": "1.0",
     "type": "library",
     "keywords": [
         "PHP",
@@ -23,7 +23,6 @@
             "YhyaSyrian\\Sql\\": "src/"
         }
     },
-    "minimum-stability": "dev",
     "require": {
         "php": ">=8.0"
     }
