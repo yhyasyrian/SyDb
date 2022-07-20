@@ -1,7 +1,6 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/Query.php';
-abstract class Close extends Query{
+class Close{
     /**
     * @return string
     * For Close Connect DataBase

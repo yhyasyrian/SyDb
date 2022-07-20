@@ -4,7 +4,7 @@ namespace YhyaSyrian\Sql;
 use YhyaSyrian\Sql\Exception;
 
 require_once __DIR__.'/Close.php';
-abstract class Connect extends Close{
+class Connect extends Close{
     /**
     * @return bool
     */

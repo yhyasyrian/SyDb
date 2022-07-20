@@ -1,7 +1,7 @@
 <?php
 namespace YhyaSyrian\Sql;
-require_once __DIR__.'/Connect.php';
-abstract class Delete extends Connect{
+require_once __DIR__.'/Query.php';
+class Delete extends Query{
     /**
     * @param string $table
     * Name Table

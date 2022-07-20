@@ -1,7 +1,7 @@
 <?php
 namespace YhyaSyrian\Sql;
 require_once __DIR__.'/Insert.php';
-abstract class Update extends Insert{
+class Update extends Insert{
     /**
     * @param string $table
     * Name Table

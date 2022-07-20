@@ -2,7 +2,7 @@
 namespace YhyaSyrian\Sql;
 require_once __DIR__.'/Exception.php';
 require_once __DIR__.'/Select.php';
-final class SyDb extends Select{
+class SyDb extends Select{
     /* *
     * @var Charset Data In DataBase 
     */

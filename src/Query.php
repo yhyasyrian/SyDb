@@ -1,7 +1,7 @@
 <?php
 namespace YhyaSyrian\Sql;
-
-abstract class Query{
+require_once __DIR__.'/Connect.php';
+class Query extends Connect{
     /**
     * @param string $query
     * SQL Code
@@ -11,6 +11,9 @@ abstract class Query{
     */
     public function query (string $query) : mixed {
         try {
+            if (empty($this->connect)) {
+                $this->connect();
+            }
             $result = $this->connect->query($query);
         } catch (\mysqli_sql_exception $th) {
             throw new Exception($th->getMessage(),$th->getCode());
