@@ -64,13 +64,13 @@ class Select extends Update{
     * @return array
     * For View All Data (SQL Code)
     */
-    public function fetch_all_query(mixed $sqlResult) :array
+    public function fetch_all_query(mixed $sqlResult) :array|bool
     {
         try {
             return mysqli_fetch_all($sqlResult,MYSQLI_ASSOC);
         } catch (\Throwable $th) {
-            throw new Exception($th->getMessage(),$th->getCode());
-            return ['ok'=>false,'error'=>$th->__toString()];
+            // throw new Exception($th->getMessage(),$th->getCode());
+            return false;
         }
     }
     /**
@@ -83,7 +83,7 @@ class Select extends Update{
     * @return array
     * For View All Data With (SQL Code Or Selection Data Special)
     */
-    public function fetch_all(mixed $table,$where = [],string $etcWhere = null) :array
+    public function fetch_all(mixed $table,$where = [],string $etcWhere = null) :array|bool
     {
         if(is_string($table)){
             return $this->fetch_all_query($this->select($table,$where,$etcWhere));
@@ -97,13 +97,13 @@ class Select extends Update{
     * @return array
     * For View Data With (SQL)
     */
-    public function fetch_query(mixed $sqlResult) :array
+    public function fetch_query(mixed $sqlResult) :array|bool
     {
         try {
             return mysqli_fetch_assoc($sqlResult);
         } catch (\Throwable $th) {
-            throw new Exception($th->getMessage(),$th->getCode());
-            return ['ok'=>false,'error'=>$th->__toString()];
+            // throw new Exception($th->getMessage(),$th->getCode());
+            return false;
         }
     }
     /**
@@ -116,7 +116,7 @@ class Select extends Update{
     * @return array
     * For View Data With (Sql Code Or Selection Data Special)
     */
-    public function fetch(mixed $table,$where = [],string $etcWhere = null) :array
+    public function fetch(mixed $table,$where = [],string $etcWhere = null) :array|bool
     {
         if(is_string($table)){
             return $this->fetch_query($this->select($table,$where,$etcWhere));

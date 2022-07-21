@@ -46,7 +46,11 @@ class Update extends Insert{
                 $result .= "`{$key}`='{$value}'";
                 $i++;
                 if ($count != $i) {
-                    $result .= ' AND ';
+                    if ($where == false) {
+                        $result .= ', ';
+                    } else {
+                        $result .= ' AND ';
+                    }
                 }
             }
         }
