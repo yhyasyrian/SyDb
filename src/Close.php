@@ -10,13 +10,13 @@ class Close{
         return mysqli_close($this->connect);
     }
     /**
-    * @param string|int $string
+    * @param mixed $string
     * Any String
     *
-    * @return string
+    * @return mixed
     * For Delete CHAR ('|")
     */
-    public function Filter(string|int $string) :string
+    public function Filter(mixed $string) :mixed
     {
         return (string) str_replace(['"',"'"],['&#34;','&#39;'],$string); 
     }
