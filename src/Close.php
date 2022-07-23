@@ -18,6 +18,6 @@ class Close{
     */
     public function Filter(mixed $string) :mixed
     {
-        return (string) str_replace(['"',"'"],['&#34;','&#39;'],$string); 
+        return str_replace(['"',"'"],['&#34;','&#39;'],$string); 
     }
 }

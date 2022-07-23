@@ -100,7 +100,7 @@ class Select extends Update{
     public function fetch_query(mixed $sqlResult) :array|bool
     {
         try {
-            return mysqli_fetch_assoc($sqlResult);
+            return str_replace(['&#34;','&#39;'],['"',"'"],mysqli_fetch_assoc($sqlResult));
         } catch (\Throwable $th) {
             // throw new Exception($th->getMessage(),$th->getCode());
             return false;
