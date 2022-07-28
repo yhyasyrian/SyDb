@@ -31,7 +31,7 @@ class Insert extends Delete{
             $datas = $this->forEach($data);
         }
         $sql .= ' (`'.implode('`,`',$key).'`) VALUES '.$datas;
-        return $sql;
+        return $sql.';';
     }
     /**
     * @param array $array

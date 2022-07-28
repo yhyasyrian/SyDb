@@ -15,7 +15,7 @@ class Delete extends Query{
     {
         $sql = "DELETE FROM `{$table}`";
         $sql .= $this->ArrayToString($where,true);
-        return $sql;
+        return $sql.';';
 
     }
     /**

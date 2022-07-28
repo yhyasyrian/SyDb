@@ -42,7 +42,7 @@ class Select extends Update{
                 }
             }
         }
-        return $result;
+        return $result.';';
     }
     /**
     * @param string $table

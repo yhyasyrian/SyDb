@@ -1,6 +1,7 @@
 <?php
 namespace YhyaSyrian\Sql;
-class Close{
+require_once __DIR__.'/Table.php';
+class Close extends Table{
     /**
     * @return string
     * For Close Connect DataBase

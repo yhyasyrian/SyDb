@@ -18,7 +18,7 @@ class Update extends Insert{
         $sql = "UPDATE `{$table}` SET";
         $sql .= $this->ArrayToString($new);
         $sql .= $this->ArrayToString($where,true);
-        return $sql;
+        return $sql.';';
 
     }
     /**
