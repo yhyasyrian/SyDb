@@ -64,7 +64,7 @@ class Select extends Update{
     * @return array
     * For View All Data (SQL Code)
     */
-    public function fetch_all_query(mixed $sqlResult) :array|bool
+    private function fetch_all_query(mixed $sqlResult) :array|bool
     {
         try {
             return mysqli_fetch_all($sqlResult,MYSQLI_ASSOC);
@@ -97,7 +97,7 @@ class Select extends Update{
     * @return array
     * For View Data With (SQL)
     */
-    public function fetch_query(mixed $sqlResult) :array|bool
+    private function fetch_query(mixed $sqlResult) :array|bool
     {
         try {
             return str_replace(['&#34;','&#39;'],['"',"'"],mysqli_fetch_assoc($sqlResult));
