@@ -17,7 +17,7 @@ class Select extends Update{
         $sql = "SELECT * FROM `{$table}`";
         $sql .= $this->ArrayToString($where);
         if (!empty($etcWhere)) $sql .= ' '.$etcWhere;
-        return $sql;
+        return $sql.';';
 
     }
     /**
@@ -42,7 +42,7 @@ class Select extends Update{
                 }
             }
         }
-        return $result.';';
+        return $result;
     }
     /**
     * @param string $table
