@@ -10,15 +10,4 @@ class Close extends Table{
     {
         return mysqli_close($this->connect);
     }
-    /**
-    * @param mixed $string
-    * Any String
-    *
-    * @return mixed
-    * For Delete CHAR ('|")
-    */
-    public function Filter(mixed $string) :mixed
-    {
-        return str_replace(['"',"'"],['&#34;','&#39;'],$string); 
-    }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace YhyaSyrian\Sql;
-class Table{
+require_once __DIR__.'/Funcation.php';
+class Table extends Funcation{
     /**
     * @return array
     * For View Tables In DataBase
