@@ -1,5 +1,6 @@
 <?php
 namespace YhyaSyrian\Sql;
+use \mysqli_result;
 require_once __DIR__.'/Update.php';
 class Select extends Update{
     /**
@@ -54,7 +55,7 @@ class Select extends Update{
     * @return mysqli_result
     * For initialization And Run SQL Code -Select Data- (SELECT) 
     */
-    public function select(string $table,array $where = [],string $etcWhere = null) : \mysqli_result 
+    public function select(string $table,array $where = [],string $etcWhere = null) :mysqli_result 
     {
         return $this->query($this->select_sql($table,$where,$etcWhere));
     }
