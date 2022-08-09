@@ -11,7 +11,11 @@ class FunctionSql{
     public function Filter(mixed $string) :mixed
     {
         try {
-            return str_replace(['"',"'"],['&#34;','&#39;'],$string); 
+            if (empty($string)) {
+                return '';
+            }
+            $string = str_replace(['"',"'"],['&#34;','&#39;'],$string); 
+            return $string;
         } catch (\Throwable $e) {
             return $string;
         }
@@ -26,7 +30,11 @@ class FunctionSql{
     public function noFilter(mixed $string) :mixed
     {
         try {
-            return str_replace(['&#34;','&#39;'],['"',"'"],$string); 
+            if (empty($string)) {
+                return '';
+            }
+            $string = str_replace(['&#34;','&#39;'],['"',"'"],$string); 
+            return $string;
         } catch (\Throwable $e) {
             return $string;
         }
