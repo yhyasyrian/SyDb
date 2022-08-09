@@ -33,6 +33,9 @@ class Update extends Insert{
     private function ArrayToString(array $array,bool $where = false) : string
     {
         $result = '';
+        if ($where == true) {
+            $array = array_merge($array,$this->whereGlobal);
+        }
         $count = count($array);
         $i = 0;
         if ($count != 0) {

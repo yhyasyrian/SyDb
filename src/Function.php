@@ -1,6 +1,6 @@
 <?php
 namespace YhyaSyrian\Sql;
-class Funcation{
+class FunctionSql{
     /**
     * @param mixed $string
     * Any String
@@ -22,5 +22,10 @@ class Funcation{
     public function noFilter(mixed $string) :mixed
     {
         return str_replace(['&#34;','&#39;'],['"',"'"],$string); 
+    }
+    public function addWhere(array $array) :bool
+    {
+        $this->whereGlobal = $array;
+        return \true;
     }
 }

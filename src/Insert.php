@@ -14,6 +14,7 @@ class Insert extends Delete{
     public function insert_sql(string $table,array $data) :string
     {
         $sql = "INSERT INTO `{$table}`";
+        $data = array_merge($data,$this->whereGlobal);
         $datas = null;
         if (isset($data[0]) and is_array($data[0])) {
             $key = array_keys($data[0]);

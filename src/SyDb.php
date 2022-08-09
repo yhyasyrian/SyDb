@@ -11,6 +11,10 @@ class SyDb extends Select{
     * @var Connect In DataBase
     */
     public $connect;
+    /* *
+    * @var whereGlobal For Add Key And Value In Table
+    */
+    public $whereGlobal = [];
     /**
     * SyDb constructor.
     *

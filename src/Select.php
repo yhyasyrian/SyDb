@@ -30,6 +30,7 @@ class Select extends Update{
     private function ArrayToString(array $array) : string
     {
         $result = '';
+        $array = array_merge($array,$this->whereGlobal);
         $count = count($array);
         $i = 0;
         if ($count != 0) {
