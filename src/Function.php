@@ -10,7 +10,11 @@ class FunctionSql{
     */
     public function Filter(mixed $string) :mixed
     {
-        return str_replace(['"',"'"],['&#34;','&#39;'],$string); 
+        try {
+            return str_replace(['"',"'"],['&#34;','&#39;'],$string); 
+        } catch (\Throwable $e) {
+            return $string;
+        }
     }
     /**
     * @param mixed $string
@@ -21,7 +25,11 @@ class FunctionSql{
     */
     public function noFilter(mixed $string) :mixed
     {
-        return str_replace(['&#34;','&#39;'],['"',"'"],$string); 
+        try {
+            return str_replace(['&#34;','&#39;'],['"',"'"],$string); 
+        } catch (\Throwable $e) {
+            return $string;
+        }
     }
     /**
     * @param array $array
