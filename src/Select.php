@@ -121,7 +121,12 @@ class Select extends Update{
     public function fetch(mixed $table,$where = [],string $etcWhere = null) :array|bool
     {
         if(is_string($table)){
-            return $this->fetch_query($this->select($table,$where,$etcWhere));
+            $result = $this->fetch_query($this->select($table,$where,$etcWhere));
+            if (\is_array($result)) {
+                return $result;
+            } else {
+                return [];
+            }
         } else {
             return $this->fetch_query($table);
         }
