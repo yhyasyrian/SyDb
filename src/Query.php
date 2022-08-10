@@ -16,7 +16,7 @@ class Query extends Connect{
             }
             $result = $this->connect->query($query);
         } catch (\mysqli_sql_exception $th) {
-            throw new Exception($th->getMessage(),$th->getCode());
+            throw new Exception($th->getMessage()." Code Error: {$query}",$th->getCode());
             return $th->getMessage();
         }
         return $result;
