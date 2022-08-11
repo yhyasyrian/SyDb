@@ -31,6 +31,9 @@ class Select extends Update{
     {
         $result = '';
         $array = array_merge($array,$this->whereGlobal);
+        $array = \array_filter($array,function($value) {
+            return !empty($value);
+        });
         $count = count($array);
         $i = 0;
         if ($count != 0) {

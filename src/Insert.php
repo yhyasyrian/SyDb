@@ -14,13 +14,13 @@ class Insert extends Delete{
     public function insert_sql(string $table,array $data) :string
     {
         $sql = "INSERT INTO `{$table}`";
-        $data = array_merge($data,$this->whereGlobal);
         $datas = null;
         if (isset($data[0]) and is_array($data[0])) {
             $key = array_keys($data[0]);
             $count = count($data);
             $i = 0;
             foreach ($data as $value) {
+                $value = array_merge($value,$this->whereGlobal);
                 $datas .= $this->forEach($value);
                 $i++;
                 if ($count != $i) {
@@ -28,10 +28,11 @@ class Insert extends Delete{
                 }
             }
         } else {
+            $data = array_merge($data,$this->whereGlobal);
             $key = array_keys($data);
             $datas = $this->forEach($data);
         }
-        $sql .= ' (`'.implode('`,`',$key).'`) VALUES '.$datas;
+        $sql .= ' (`'.$this->implode('`,`',$key).'`) VALUES '.$datas;
         return $sql.';';
     }
     /**
@@ -42,6 +43,9 @@ class Insert extends Delete{
     * For initialization Data To Insert DataBase
     */
     private function forEach(array $array) {
+        $array = \array_filter($array,function($value) {
+            return !empty($value);
+        });
         $count = count($array);
         $i = 0;
         $result = null;
@@ -67,5 +71,29 @@ class Insert extends Delete{
     public function insert(string $table,array $data) : bool
     {
         return $this->query($this->insert_sql($table,$data));
+    }
+    /**
+    * @param string $string
+    * Defaults to an empty string. This is not the preferred usage of implode as glue would be the second parameter and thus, the bad prototype would be used.
+    * @param array $array
+    * Array Implode To String
+    *
+    * @return string
+    * Convert Array To String
+    */
+    private function implode(string $string,array $array) :string {
+        $array = \array_filter($array,function($value) {
+            return !empty($value);
+        });
+        $count = \count($array) - 1;
+        $result = '';
+        foreach ($array as $key => $value) {
+            if ($count == $key) {
+                $result .= $value;
+                continue;
+            }
+            $result .= $value.$string;
+        }
+        return $result;
     }
 }

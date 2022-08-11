@@ -14,6 +14,7 @@ class Delete extends Query{
     public function delete_sql(string $table,array $where) : string
     {
         $sql = "DELETE FROM `{$table}`";
+        $where = array_merge($where,$this->whereGlobal);
         $sql .= $this->ArrayToString($where,true);
         return $sql.';';
 
@@ -27,7 +28,9 @@ class Delete extends Query{
     private function ArrayToString(array $array) : string
     {
         $result = '';
-        $array = array_merge($array,$this->whereGlobal);
+        $array = \array_filter($array,function($value) {
+            return !empty($value);
+        });
         $count = count($array);
         $i = 0;
         if ($count != 0) {
