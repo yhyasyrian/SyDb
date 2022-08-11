@@ -2,6 +2,15 @@
 namespace YhyaSyrian\Sql;
 class FunctionSql{
     /**
+    * @var Chars For Remove In Filter
+    */
+    private $Char = [
+        '"' => '&#34;',
+        "'" => '&#39;',
+        \PHP_EOL => '&#Line;',
+        '\\' => '&#Slash;'
+    ];
+    /**
     * @param mixed $string
     * Any String
     *
@@ -14,7 +23,7 @@ class FunctionSql{
             if (empty($string)) {
                 return '';
             }
-            $string = str_replace(['"',"'"],['&#34;','&#39;'],$string); 
+            $string = str_replace(\array_keys($this->Char),\array_values($this->Char),$string); 
             return $string;
         } catch (\Throwable $e) {
             return $string;
@@ -33,7 +42,7 @@ class FunctionSql{
             if (empty($string)) {
                 return '';
             }
-            $string = str_replace(['&#34;','&#39;'],['"',"'"],$string); 
+            $string = str_replace(\array_values($this->Char),\array_keys($this->Char),$string); 
             return $string;
         } catch (\Throwable $e) {
             return $string;

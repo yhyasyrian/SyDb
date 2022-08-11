@@ -3,11 +3,11 @@ namespace YhyaSyrian\Sql;
 require_once __DIR__.'/Exception.php';
 require_once __DIR__.'/Select.php';
 class SyDb extends Select{
-    /* *
+    /**
     * @var Charset Data In DataBase 
     */
     public $charset = 'utf8mb4';
-    /* *
+    /**
     * @var Connect In DataBase
     */
     public $connect;
