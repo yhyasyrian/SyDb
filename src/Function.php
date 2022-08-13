@@ -74,7 +74,7 @@ class FunctionSql{
 		$start *= $number;
 		return 'ORDER BY '.$name.' DESC LIMIT '.$start.','.$number;
 	}
-        /**
+    /**
     * @param string $name
     * Name Column
     * @param int $number
@@ -89,4 +89,19 @@ class FunctionSql{
 		$start *= $number;
 		return 'ORDER BY '.$name.' LIMIT '.$start.','.$number;
 	}
+    /**
+    * @param array $array
+    * Array Datas
+    * @return array
+    * result array all values isn't empey
+    */
+    public function filterArrayMap(array $array) :array
+    {
+        return \array_filter($array,function($value) {
+            if ($value == 0) {
+                return \true;
+            }
+            return ($value != null);
+        });
+    }
 }

@@ -36,9 +36,7 @@ class Update extends Insert{
         if ($where == true) {
             $array = array_merge($array,$this->whereGlobal);
         }
-        $array = \array_filter($array,function($value) {
-            return !empty($value);
-        });
+        $array = $this->filterArrayMap($array);;
         $count = count($array);
         $i = 0;
         if ($count != 0) {
@@ -48,8 +46,12 @@ class Update extends Insert{
                 $result = ' ';
             }
             foreach ($array as $key => $value) {
-                $value = $this->Filter($value);
-                $result .= "`{$key}`='{$value}'";
+                if (\is_string($value) and !\preg_match('/^-[0-9]+$/',$value)) {
+                    $value = $this->Filter($value);
+                    $result .= "`{$key}`='{$value}'";
+                } else {
+                    $result .= "`{$key}`={$value}";
+                }
                 $i++;
                 if ($count != $i) {
                     if ($where == false) {

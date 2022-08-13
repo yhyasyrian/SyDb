@@ -43,15 +43,17 @@ class Insert extends Delete{
     * For initialization Data To Insert DataBase
     */
     private function forEach(array $array) {
-        $array = \array_filter($array,function($value) {
-            return !empty($value);
-        });
+        $array = $this->filterArrayMap($array);
         $count = count($array);
         $i = 0;
         $result = null;
         foreach ($array as $key => $value) {
-            $value = $this->Filter($value);
-            $result .= "'{$value}'";
+            if (\is_string($value) and !\preg_match('/^-[0-9]+$/',$value)) {
+                $value = $this->Filter($value);
+                $result .= "'{$value}'";
+            } else {
+                $result .= $value;
+            }
             $i++;
             if ($count != $i) {
                 $result .= ',';
@@ -82,9 +84,7 @@ class Insert extends Delete{
     * Convert Array To String
     */
     private function implode(string $string,array $array) :string {
-        $array = \array_filter($array,function($value) {
-            return !empty($value);
-        });
+        $array = $this->filterArrayMap($array);
         $count = \count($array) - 1;
         $result = '';
         foreach ($array as $key => $value) {
