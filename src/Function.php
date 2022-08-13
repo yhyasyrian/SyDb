@@ -97,11 +97,14 @@ class FunctionSql{
     */
     public function filterArrayMap(array $array) :array
     {
-        return \array_filter($array,function($value) {
-            if ($value == 0) {
-                return \true;
+        foreach ($array as $key => $value) {
+            if ($key == 0) {
+                continue;
             }
-            return ($value != null);
-        });
+            if (empty($key)) {
+                unset($array[$key]);
+            }
+        }
+        return $array;
     }
 }
