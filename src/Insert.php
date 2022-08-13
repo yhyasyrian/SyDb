@@ -17,6 +17,7 @@ class Insert extends Delete{
         $datas = null;
         if (isset($data[0]) and is_array($data[0])) {
             $key = array_keys($data[0]);
+            $key = array_merge($key,\array_keys($this->whereGlobal));
             $count = count($data);
             $i = 0;
             foreach ($data as $value) {

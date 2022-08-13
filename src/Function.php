@@ -56,6 +56,11 @@ class FunctionSql{
     */
     public function addWhere(array $array) :bool
     {
+        foreach ($array as $key => $value) {
+            if (empty($key) or empty($value)) {
+                unset($array[$key]);
+            }
+        }
         $this->whereGlobal = $array;
         return \true;
     }
