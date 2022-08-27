@@ -112,4 +112,13 @@ class FunctionSql{
         }
         return $array;
     }
+    /**
+    * @param int $time
+    * Set Time Such As Second
+    * @return void
+    */
+    public function setTimeConnect(int $time) :void
+    {
+        $this->timeConnect = $time;
+    }
 }

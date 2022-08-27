@@ -77,7 +77,7 @@ class Select extends Update{
             return mysqli_fetch_all($sqlResult,MYSQLI_ASSOC);
         } catch (\Throwable $th) {
             // throw new Exception($th->getMessage(),$th->getCode());
-            return false;
+            return [[]];
         }
     }
     /**
@@ -110,7 +110,7 @@ class Select extends Update{
             return $this->noFilter(mysqli_fetch_assoc($sqlResult));
         } catch (\Throwable $th) {
             // throw new Exception($th->getMessage(),$th->getCode());
-            return false;
+            return [];
         }
     }
     /**

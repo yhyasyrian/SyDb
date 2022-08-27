@@ -15,6 +15,14 @@ class SyDb extends Select{
     * @var whereGlobal For Add Key And Value In Table
     */
     public $whereGlobal = [];
+    /* *
+    * @var timeConnect For Time Period Between Each Connection
+    */
+    public $timeConnect = 15;
+    /* *
+    * @var timeConnect For Time Period Between Each Connection (Time Start Connect)
+    */
+    public $timeStart = 15;
     /**
     * SyDb constructor.
     *
