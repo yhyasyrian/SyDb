@@ -57,8 +57,8 @@ class Delete extends Query{
     * @return string
     * For initialization Sql Code And Run (DELETE)
     */
-    public function delete(string $table,array $where) 
+    public function delete(string $table,array $where) :void
     {
-        return $this->query($this->delete_sql($table,$where));
+        $this->query($this->delete_sql($table,$where));
     }
 }

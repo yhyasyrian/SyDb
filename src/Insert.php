@@ -43,7 +43,7 @@ class Insert extends Delete{
     * @return string
     * For initialization Data To Insert DataBase
     */
-    private function forEach(array $array) {
+    private function forEach(array $array) :string {
         $array = $this->filterArrayMap($array);
         $count = count($array);
         $i = 0;

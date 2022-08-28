@@ -75,7 +75,8 @@ class FunctionSql{
     * @return string
     * Can You Use The String In Function select In Third Param For Get Rows Last
     */
-    public function endColumn(string $name = 'Id',int $number = 10,int $start = 0){ // Start Form 10 To 0
+    public function endColumn(string $name = 'Id',int $number = 10,int $start = 0) :string 
+    {  // Start Form 10 To 0
 		$start *= $number;
 		return 'ORDER BY '.$name.' DESC LIMIT '.$start.','.$number;
 	}
@@ -90,7 +91,8 @@ class FunctionSql{
     * @return string
     * Can You Use The String In Function select In Third Param For Get Rows Start
     */
-	public function startColumn(string $name = 'Id',int $number = 10,int $start = 0){ // Start Form 0 To 10
+	public function startColumn(string $name = 'Id',int $number = 10,int $start = 0) :string
+    { // Start Form 0 To 10
 		$start *= $number;
 		return 'ORDER BY '.$name.' LIMIT '.$start.','.$number;
 	}

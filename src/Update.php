@@ -75,8 +75,8 @@ class Update extends Insert{
     * @return string
     * For initialization Sql Code And Run (UPDATE)
     */
-    public function update(string $table,array $where,array $new) 
+    public function update(string $table,array $where,array $new) :void
     {
-        return $this->query($this->update_sql($table,$where,$new));
+        $this->query($this->update_sql($table,$where,$new));
     }
 }
