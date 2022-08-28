@@ -79,7 +79,7 @@ class FunctionSql{
     {  // Start Form 10 To 0
 		$start *= $number;
 		return 'ORDER BY '.$name.' DESC LIMIT '.$start.','.$number;
-	}
+    }
     /**
     * @param string $name
     * Name Column
@@ -95,7 +95,7 @@ class FunctionSql{
     { // Start Form 0 To 10
 		$start *= $number;
 		return 'ORDER BY '.$name.' LIMIT '.$start.','.$number;
-	}
+    }
     /**
     * @param array $array
     * Array Datas
