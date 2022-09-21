@@ -77,8 +77,8 @@ class FunctionSql{
     */
     public function endColumn(string $name = 'Id',int $number = 10,int $start = 0) :string 
     {  // Start Form 10 To 0
-		$start *= $number;
-		return 'ORDER BY '.$name.' DESC LIMIT '.$start.','.$number;
+        $start *= $number;
+        return 'ORDER BY '.$name.' DESC LIMIT '.$start.','.$number;
     }
     /**
     * @param string $name
@@ -93,8 +93,8 @@ class FunctionSql{
     */
 	public function startColumn(string $name = 'Id',int $number = 10,int $start = 0) :string
     { // Start Form 0 To 10
-		$start *= $number;
-		return 'ORDER BY '.$name.' LIMIT '.$start.','.$number;
+        $start *= $number;
+        return 'ORDER BY '.$name.' LIMIT '.$start.','.$number;
     }
     /**
     * @param array $array

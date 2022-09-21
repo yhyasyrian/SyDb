@@ -72,7 +72,7 @@ class Update extends Insert{
     * @param array $new
     * column => row
     *
-    * @return string
+    * @return void
     * For initialization Sql Code And Run (UPDATE)
     */
     public function update(string $table,array $where,array $new) :void

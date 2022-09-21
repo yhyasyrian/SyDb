@@ -16,18 +16,7 @@ class Insert extends Delete{
         $sql = "INSERT INTO `{$table}`";
         $datas = null;
         if (isset($data[0]) and is_array($data[0])) {
-            $key = array_keys($data[0]);
-            $key = array_merge($key,\array_keys($this->whereGlobal));
-            $count = count($data);
-            $i = 0;
-            foreach ($data as $value) {
-                $value = array_merge($value,$this->whereGlobal);
-                $datas .= $this->forEach($value);
-                $i++;
-                if ($count != $i) {
-                    $datas .= ',';
-                }
-            }
+            return $this->insertall_sql($table,$data);
         } else {
             $data = array_merge($data,$this->whereGlobal);
             $key = array_keys($data);
@@ -35,6 +24,33 @@ class Insert extends Delete{
         }
         $sql .= ' (`'.$this->implode('`,`',$key).'`) VALUES '.$datas;
         return $sql.';';
+    }
+    private function insertall_sql(string $table,array $data) :string
+    {
+        $i = 0;
+        $n = 0;
+        $bool = true;
+        $key = array_keys($data[0]);
+        $key = array_merge($key,\array_keys($this->whereGlobal));
+        $count = count($data);
+        $datas = '';
+        foreach ($data as $value) {
+            if ($bool == \true) {
+                $datas .= "INSERT INTO `{$table}` ".'(`'.$this->implode('`,`',$key).'`) VALUES ';
+                $bool = \false;
+            }
+            $value = array_merge($value,$this->whereGlobal);
+            $datas .= $this->forEach($value);
+            $i++;
+            $n++;
+            if ($count != $i and ($n % 10) != 0) {
+                $datas .= ','.PHP_EOL;
+            } else {
+                $datas .= ';'.PHP_EOL;
+                $bool = \true;
+            }
+        }
+        return $datas;
     }
     /**
     * @param array $array

@@ -68,7 +68,7 @@ class Select extends Update{
     /**
     * @param mixed $sqlResult
     * SQL Code (SELECT)
-    * @return array
+    * @return array|bool
     * For View All Data (SQL Code)
     */
     private function fetch_all_query(mixed $sqlResult) :array|bool
@@ -81,7 +81,7 @@ class Select extends Update{
         }
     }
     /**
-    * @param mixed $table
+    * @param string $table
     * Name Table
     * @param array $where
     * column => row
@@ -90,7 +90,7 @@ class Select extends Update{
     * @return array
     * For View All Data With (SQL Code Or Selection Data Special)
     */
-    public function fetch_all(mixed $table,$where = [],string $etcWhere = null) :array|bool
+    public function fetch_all(string $table,array $where = [],string $etcWhere = null) :array|bool
     {
         if(is_string($table)){
             return $this->fetch_all_query($this->select($table,$where,$etcWhere));
@@ -114,7 +114,7 @@ class Select extends Update{
         }
     }
     /**
-    * @param mixed $table
+    * @param string $table
     * Name Table
     * @param array $where 
     * column => row
@@ -123,7 +123,7 @@ class Select extends Update{
     * @return array
     * For View Data With (Sql Code Or Selection Data Special)
     */
-    public function fetch(mixed $table,$where = [],string $etcWhere = null) :array|bool
+    public function fetch(string $table,array $where = [],string $etcWhere = null) :array|bool
     {
         if(is_string($table)){
             $result = $this->fetch_query($this->select($table,$where,$etcWhere));

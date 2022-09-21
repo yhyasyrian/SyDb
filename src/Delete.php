@@ -54,7 +54,7 @@ class Delete extends Query{
     * @param array $where
     * column => row
     *
-    * @return string
+    * @return void
     * For initialization Sql Code And Run (DELETE)
     */
     public function delete(string $table,array $where) :void

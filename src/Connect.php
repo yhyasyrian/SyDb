@@ -11,7 +11,7 @@ class Connect extends Close{
     public function connect() : bool
     {
         try{
-            if (empty($this->connect) or $this->timeStart < (\time() - $this->timeConnect)) {
+            if (empty($this->connect) or ($this->timeStart < (\time() - $this->timeConnect) and PHP_SAPI == 'cli') or PHP_SAPI != 'cli') {
                 $this->timeStart = \time();
                 @$this->connect = @mysqli_connect($this->Host,$this->User,$this->Pass,$this->DB);
                 @mysqli_set_charset($this->connect,$this->charset);
