@@ -123,7 +123,7 @@ class Select extends Update{
     * @return array
     * For View Data With (Sql Code Or Selection Data Special)
     */
-    public function fetch(string $table,array $where = [],string $etcWhere = null) :array|bool
+    public function fetch(string|mysqli_result $table,array $where = [],string $etcWhere = null) :array|bool
     {
         if(is_string($table)){
             $result = $this->fetch_query($this->select($table,$where,$etcWhere));
