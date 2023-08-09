@@ -382,7 +382,7 @@ Return true, `bool` type
 require 'vendor/autoload.php';
 use \YhyaSyrian\Sql\SyDb;
 $SyDb = new SyDb('localhost','root','pass','database');
-$SyDb->exportTable('.'); // you can show file Members.sql
+$SyDb->exportTables('.'); // you can show file Members.sql
 ```
 # Error
 In the "Error" class, In order to classify errors
