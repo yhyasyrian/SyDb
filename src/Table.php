@@ -34,7 +34,6 @@ class Table extends FunctionSql{
     {
         try {
             $sql = $this->insert_sql($table,$this->fetch_all($table));
-            $dir = dirname($dir);
             if ($bool == \true) {
                 $table .= '-'.time();
             }
