@@ -427,5 +427,38 @@ echo $SyDb->update_sql('member',['status'=>'ofline','name'=>"test"],['status'=>"
 ```
     {Advice}: It may be difficult to add the array manually if you want to change your storage format
 ## StartColumn
+If you want get data but start id or last time, you should function `StartColumn` where you can set limit and offset example:
+```php
+<?php
+require 'vendor/autoload.php';
+use \YhyaSyrian\Sql\SyDb;
+$SyDb = new SyDb('localhost','root','pass','database');
+echo $SyDb->select_sql('member',['type'=>'admin'],$SyDb->StartColumn('id',100,0)); // SELECT * FROM `member` WHERE `status`='admin' ORDER BY id LIMIT 0,100;
+```
 ## EtartColumn
+If you want get data but end id or new time, you should function `EtartColumn` where you can set limit and offset example:
+```php
+<?php
+require 'vendor/autoload.php';
+use \YhyaSyrian\Sql\SyDb;
+$SyDb = new SyDb('localhost','root','pass','database');
+echo $SyDb->select_sql('member',['type'=>'admin']); // SELECT * FROM `member` WHERE `status`='admin' ORDER BY id DESC LIMIT 0,100;
+```
 ## SetTimeConnect
+If you use this library with CLI, you can set time connect when every connect such as : you connect every second you don't be forced to create connections new becuse the servers are limting connections example:
+```php
+<?php
+require 'vendor/autoload.php';
+use \YhyaSyrian\Sql\SyDb;
+$SyDb = new SyDb('localhost','root','pass','database');
+$SyDb->setTimeConnect(10);
+$startTime = time();
+$i = 0;
+while ($startTime > (time() - 30)) {
+    $SyDb->connect();
+    echo $i++."-number\r";
+    sleep(1);
+}
+// Connect 3 item
+```
+End documentation, if you want any project, you can contact us with email: yhya.syrian@gmail.com
