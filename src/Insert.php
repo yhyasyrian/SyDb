@@ -70,7 +70,7 @@ class Insert extends Delete{
                 $result .= "'{$value}'";
             } else {
                 if (empty($value)) {
-                    $value = '';
+                    $value = "''";
                 }
                 $result .= $value;
             }

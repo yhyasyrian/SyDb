@@ -51,7 +51,7 @@ class Update extends Insert{
                     $result .= "`{$key}`='{$value}'";
                 } else {
                     if (empty($value)) {
-                        $value = '';
+                        $value = "''";
                     }
                     $result .= "`{$key}`={$value}";
                 }

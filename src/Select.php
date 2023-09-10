@@ -42,7 +42,7 @@ class Select extends Update{
                     $result .= "`{$key}`='{$value}'";
                 } else {
                     if (empty($value)) {
-                        $value = '';
+                        $value = "''";
                     }
                     $result .= "`{$key}`={$value}";
                 }

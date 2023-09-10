@@ -39,7 +39,7 @@ class Delete extends Query{
                     $result .= "`{$key}`='{$value}'";
                 } else {
                     if (empty($value)) {
-                        $value = '';
+                        $value = "''";
                     }
                     $result .= "`{$key}`={$value}";
                 }
