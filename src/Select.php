@@ -41,6 +41,9 @@ class Select extends Update{
                     $value = $this->Filter($value);
                     $result .= "`{$key}`='{$value}'";
                 } else {
+                    if (empty($value)) {
+                        $value = '';
+                    }
                     $result .= "`{$key}`={$value}";
                 }
                 $i++;

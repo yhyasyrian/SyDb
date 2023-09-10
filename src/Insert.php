@@ -69,6 +69,9 @@ class Insert extends Delete{
                 $value = $this->Filter($value);
                 $result .= "'{$value}'";
             } else {
+                if (empty($value)) {
+                    $value = '';
+                }
                 $result .= $value;
             }
             $i++;

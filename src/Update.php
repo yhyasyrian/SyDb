@@ -50,6 +50,9 @@ class Update extends Insert{
                     $value = $this->Filter($value);
                     $result .= "`{$key}`='{$value}'";
                 } else {
+                    if (empty($value)) {
+                        $value = '';
+                    }
                     $result .= "`{$key}`={$value}";
                 }
                 $i++;
