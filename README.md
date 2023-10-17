@@ -25,7 +25,7 @@ You can install library with `composer` You can install a library using Composer
 ```json
 {
     "require": {
-        "yhyasyrian/sydb": "^1.4"
+        "yhyasyrian/sydb": "^1.5"
     }
 }
 ```

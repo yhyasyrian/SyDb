@@ -13,7 +13,7 @@
         "mysqli"
     ],
     "require": {
-        "php": ">=7.2"
+        "php": ">=8.1"
     },
     "autoload": {
         "psr-4": {
@@ -24,7 +24,7 @@
         {
             "name": "Yhya Nesb",
             "email": "yhya.syrian@gmail.com",
-            "homepage": "https://yhyasyrian.xyz",
+            "homepage": "https://yhyasyrian.com",
             "role": "Developer"
         }
     ],
