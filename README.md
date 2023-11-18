@@ -3,6 +3,8 @@ Syrian DataBase
 It is a simple library that depends on connecting to databases via mysql that performs data processing, as it converts ordinary data into `sql` code.
 The library is safe and does not contain `sql injection` vulnerabilities. It is intended to avoid these problems, which may be somewhat difficult for beginners to avoid, and it is easy and flexible to learn.
 
+## Note
+This library was just an experiment and does not have the ability for large and medium projects because of the lack of the ability to merge tables through methods embedded in it, it is useful to add and delete data only and in the end it was just an experience for me and I learned a lot from it and today I do not advise anyone to deal with it
 
 Index A sequential list of methods:
 [Install Library](#install-library) How to install library SyDb
